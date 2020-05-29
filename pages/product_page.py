@@ -5,9 +5,13 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
 
     PAGE_SLUG = '/?promo=newYear'
+    PAGE_SLUG_OFFER = '?promo=offer'
 
     def should_be_product_url(self):
         assert self.PAGE_SLUG in self.browser.current_url, "Product page url is wrong"
+
+    def should_be_products_offer_url(self):
+        assert self.PAGE_SLUG_OFFER in self.browser.current_url, "Offer product page url is wrong"    
 
     def should_be_button_add_basket(self):
         assert self.is_element_present(*ProductPageLocators.BSKTBUTTON_ADD), "Basket add is not found"
@@ -36,6 +40,9 @@ class ProductPage(BasePage):
 
     def should_be_same_title_and_message(self):
         assert self.get_product_title() in self.get_success_message(), "Title do not match"
+
+    def should_be_participate_in_offer(self):
+        assert self.get_success_message() == "Coders at Work", "Link not participate in offer"   
 
     def should_be_same_price_and_basket(self):
         assert self.get_product_price() in self.get_busket_price(), "Price do not match"

@@ -10,6 +10,7 @@ class LoginPageLocators():
 
 class ProductPageLocators():
     PRODUCT_LINK = "?promo=newYear"   
+    PRODUCTS_LINKS = "?promo=offerN"
     BSKTBUTTON_ADD = (By.CSS_SELECTOR, '#add_to_basket_form')    
     PRICE_VAL = (By.CSS_SELECTOR, '.product_page .price_color')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div .alert-success .alertinner strong')
