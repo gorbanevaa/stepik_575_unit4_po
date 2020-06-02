@@ -21,3 +21,25 @@ def test_guest_can_add_product_to_basket(browser, promo_offer):
     page.should_be_same_title_and_message()
     page.should_be_same_price_and_basket()
     page.should_be_participate_in_offer()
+
+@pytest.mark.xfail
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/" 
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_click_add_good_in_busket()
+    page.should_not_be_success_message()
+
+def test_guest_cant_see_success_message(browser):    
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/" 
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_not_be_success_message()
+
+@pytest.mark.xfail
+def test_message_disappeared_after_adding_product_to_basket(browser): 
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/" 
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_click_add_good_in_busket()
+    page.should_disappeared_be_success_message()
