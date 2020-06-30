@@ -24,7 +24,7 @@ def browser(request):
     else:
         options = ChromeOptions()
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language })
-        #options.add_argument("--headless")
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
         browser = webdriver.Chrome(options=options)
         print("\n starting chorme browser for test..")
     yield browser
