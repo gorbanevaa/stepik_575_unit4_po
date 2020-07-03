@@ -16,7 +16,7 @@ class ProductPage(BasePage):
     def should_be_button_add_basket(self):
         assert self.is_element_present(*ProductPageLocators.BSKTBUTTON_ADD), "Basket add is not found"
 
-    def click_add_good_to_busket(self):
+    def click_add_good_to_basket(self):
         add_button = self.browser.find_element(*ProductPageLocators.BSKTBUTTON_ADD)
         add_button.click()
             
@@ -29,7 +29,7 @@ class ProductPage(BasePage):
     def get_success_message(self):
         return self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
 
-    def get_busket_price(self):
+    def get_basket_price(self):
         return self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text
 
     def should_be_same_title_and_message(self):
@@ -39,7 +39,7 @@ class ProductPage(BasePage):
         assert self.get_success_message() == "Coders at Work", "Link not participate in offer"   
 
     def should_be_same_price_and_basket(self):
-        assert self.get_product_price() in self.get_busket_price(), "Price do not match"
+        assert self.get_product_price() in self.get_basket_price(), "Price do not match"
 
     def should_be_success_message(self):
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not found"
@@ -50,8 +50,8 @@ class ProductPage(BasePage):
     def should_disappeared_be_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"                
     
-    def should_be_busket_message(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_PRICE), "Busket message is not found"
+    def should_be_basket_message(self):
+        assert self.is_element_present(*ProductPageLocators.BASKET_PRICE), "basket message is not found"
 
     def should_be_price(self):
-        assert self.is_element_present(*ProductPageLocators.PRICE_VAL), "Busket message is not found"    
+        assert self.is_element_present(*ProductPageLocators.PRICE_VAL), "basket message is not found"    
